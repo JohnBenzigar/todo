@@ -24,17 +24,6 @@ function success(res, payload) {
     }
   })
   
-  /*router.post("/todos", async (req, res) => {
-    const {name,description} = req.body
-    try {
-      const todo = await todoModel.create({name,description})
-      res.status(200).json(todo)
-    } catch (error) {
-      res.status(400).json({error:error.message}) }
-    }
-  )
-  */
-  
   router.put("/todos/:id", async (req, res, next) => {
     try {
       const todo = await todoModel.findByIdAndUpdate(req.params.id, req.body, {
@@ -45,6 +34,7 @@ function success(res, payload) {
       next({ status: 400, message: "failed to update todo" })
     }
   })
+  
   router.delete("/todos/:id", async (req, res, next) => {
     try {
       await todoodel.findByIdAndRemove(req.params.id)
