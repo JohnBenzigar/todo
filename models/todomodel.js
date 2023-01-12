@@ -12,10 +12,6 @@ const todoSchema = new mongoose.Schema(
       required: true,
     },
 
-    status: {
-      type: Boolean,
-      required: true,
-    },
   },
   { timestamps: true }
 )
